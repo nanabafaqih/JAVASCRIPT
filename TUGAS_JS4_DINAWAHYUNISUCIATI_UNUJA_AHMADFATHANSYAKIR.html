@@ -1,0 +1,46 @@
+<script>
+  class Gempa{
+      constructor(lokasi, skala){
+          this.lokasi = lokasi;
+          this.skala = skala;
+          
+      }
+  
+      getDampak(){
+          if(this.skala <= 2 ) this.dampak = 'dampaknya tidak terasa';
+          else if(this.skala > 2 && this.skala <=4 ) this.dampak = 'dampaknya Bangunan retak-retak';
+          else if(this.skala > 4 && this.skala <= 6) this.dampak = 'dampaknya bangunan roboh';
+          else if(this.skala <0 && this.skala <= 6 ) this.dampak= 'tsunami';
+          else this.dampak= '';
+  
+          return this.dampak;
+      }
+  
+  
+      cetak(){
+          document.write('lokasi: '+ this.lokasi +
+          '<br/>skala: ' + this.skala +
+          '<br/>dampak: ' + this.getDampak() +
+          
+          '<hr/>');
+      }
+  
+      mencetak(){
+          document.write(`lokasi:  ${this.lokasi}
+          <br/>skala: ${this.skala}
+          <br/>dampak: ${this.getDampak()}
+          
+          <hr/>`);
+      }
+  }
+  
+  //-------membuat object-----
+  g1 = new Gempa('NTB',4);
+  g2 = new Gempa('NTT',2);
+  g3 = new Gempa('Andi',6);
+  
+  g1.mencetak(); g2.mencetak(); g3.mencetak();
+  
+  </script>
+  
+     
